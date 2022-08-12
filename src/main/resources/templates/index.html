@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Landing Page</title>
+</head>
+<body>
+    <h1>Crypto News of the Day</h1>
+    
+    <form
+    action="#"
+    th:action="@{/articles}"
+    method="post">
+    <table >
+        <tr>
+            <td>Image</td>
+            <td>Id</td>
+            <td>Title</td>
+            <td>Body</td>
+            <td>Categories</td>
+            <td>Tags</td>
+            <td>Published on</td>
+            <td>Save</td>
+
+        </tr>
+        <tr data-th-each="item , iStat : ${articles.Data}" >
+            <td> <img th:src="@{${item.imageurl}}"  /> </td>
+            <td data-th-text="${item.id}" ></td>
+            <td data-th-text="${item.title}"></td>
+            <td data-th-text="${item.body}"></td>
+            <td data-th-text="${item.categories}"></td>
+            <td data-th-text="${item.tags}"></td>
+            <td data-th-text="${item.published_on}"></td>
+            <td>
+                <input type="checkbox" name="id" th:value="${iStat.count}" />
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Save" />
+    </form>
+</body>
+</html>
