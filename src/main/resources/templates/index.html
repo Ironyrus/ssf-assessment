@@ -14,19 +14,21 @@
     th:action="@{/articles}"
     method="post">
     <table class="table">
+    <thead>
         <tr>
-            <td>Image</td>
-            <td>Id</td>
-            <td>Title</td>
-            <td>Body</td>
-            <td>Categories</td>
-            <td>Tags</td>
-            <td>Published on</td>
-            <td>Save</td>
+            <th scope="col">Image</th>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Body</th>
+            <th scope="col">Categories</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Published on</th>
+            <th scope="col">Save</th>
 
         </tr>
+    </thead>
         <tr data-th-each="item , iStat : ${articles.Data}" >
-            <td> <img th:src="@{${item.imageurl}}" class="img-thumbnail" /> </td>
+            <td> <img th:src="@{${item.imageurl}}" class="rounded float-start" /> </td>
             <td data-th-text="${item.id}" ></td>
             <td data-th-text="${item.title}"></td>
             <td data-th-text="${item.body}"></td>
