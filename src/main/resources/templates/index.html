@@ -39,7 +39,7 @@
             <td class="col" data-th-text="${item.getCategories()}"></td>
             <td class="col" data-th-text="${item.getTags()}"></td>
             <td class="col" data-th-text="${item.getPublished_on()}"></td>
-            <td class="col" ><a href=${item.getUrl()}"></a></td>
+            <td class="col" ><a href="${item.getUrl()}"></a></td>
             <td class="col" >
                 <input type="checkbox" name="id" th:value="${iStat.count}" />
             </td>
