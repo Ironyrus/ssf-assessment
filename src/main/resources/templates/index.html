@@ -25,6 +25,7 @@
             <th scope="col">Categories</th>
             <th scope="col">Tags</th>
             <th scope="col">Published on</th>
+            <th scope="col">Link</th>
             <th scope="col">Save</th>
 
         </tr>
@@ -38,6 +39,7 @@
             <td class="col" data-th-text="${item.getCategories()}"></td>
             <td class="col" data-th-text="${item.getTags()}"></td>
             <td class="col" data-th-text="${item.getPublished_on()}"></td>
+            <td class="col" data-th-text="${item.getUrl()}"><a href=${item.getUrl()}"></a></td>
             <td class="col" >
                 <input type="checkbox" name="id" th:value="${iStat.count}" />
             </td>
