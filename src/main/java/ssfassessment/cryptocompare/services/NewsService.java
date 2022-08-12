@@ -18,8 +18,6 @@ public class NewsService {
     @Autowired
     artObj Articles;
     
-    // @Value("${spring.crypto.password}")
-    // private String crypto_apikey;
     private String crypto_apikey = System.getenv("CRYPTO_API_KEY");
 
     public ArrayList<artObj> getArticles() {
