@@ -27,17 +27,13 @@ public class NewsController {
     public String getHome(Model model) {
         NewsService service = new NewsService(); 
         ArrayList<artObj> articles = new ArrayList<>();
-        for (artObj article : service.getArticles()) {
+        articles = service.getArticles();
+        for (artObj article : articles) {
             articles.add(article);
         }
 
         //Populating object with Arraylist of articles
         articleObj.setData(articles);
-
-        for (int i = 0; i < articles.size(); i++) {
-            System.out.println(articles.get(i).getBody());
-            System.out.println(">+>+>+>+>+>+>+>+>+>+");
-        }
         model.addAttribute("articles", articleObj);
         return "index";
     }

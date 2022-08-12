@@ -35,12 +35,6 @@ public class NewsService {
         ResponseEntity<artObj> responseEntity = template.exchange(request, artObj.class);
 
         artObj articles = responseEntity.getBody();
-        System.out.println(responseEntity.getStatusCode());
-
-        System.out.println("INSIDE SERVICE");
-        for (int i = 0; i < articles.getData().size(); i++) {
-            System.out.println(articles.getData().get(i));
-        }
        
         return articles.getData();
     }

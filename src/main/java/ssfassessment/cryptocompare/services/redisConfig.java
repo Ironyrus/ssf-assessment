@@ -32,37 +32,6 @@ public class redisConfig {
     // private String redisPassword = "";
     private String redisPassword = System.getenv("REDIS_API_KEY");
 
-    // @Bean
-    // @Scope("singleton")
-    // public RedisTemplate<String, Object> redisTemplate() {
-    //     final RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
-    //     config.setHostName(redisHost);
-    //     config.setPort(redisPort.get());
-    //     config.setPassword(redisPassword);
-
-    //     final JedisClientConfiguration jedisClient = JedisClientConfiguration.builder().build();
-    //     final JedisConnectionFactory jedisFactory = new JedisConnectionFactory(config, jedisClient);
-    //     jedisFactory.afterPropertiesSet();
-
-    //     final RedisTemplate<String, Object> template = new RedisTemplate<>();
-    //     template.setConnectionFactory(jedisFactory);
-    //     template.setKeySerializer(new StringRedisSerializer());
-    //     template.setValueSerializer(new StringRedisSerializer());
-    //     return template;
-    // }
-
-    // @Value("${spring.redis.host}")
-    // private String redisHost;
-
-    // @Value("${spring.redis.port}")
-    // private Optional<Integer> redisPort;
-
-    // @Value("${spring.redis.password}")
-    // private String redisPassword;
-
-    // @Value("${spring.redis.database}")
-    // private String redisDatabase;
-
     @Bean()
     @Scope("singleton")
     public RedisTemplate<String, artObj> redisTemplate() {

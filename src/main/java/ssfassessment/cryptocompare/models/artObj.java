@@ -11,8 +11,7 @@ import java.util.Random;
 
 public class artObj implements Serializable {
     public ArrayList<artObj> Data;
-    // public String Message;
-    // public String HasWarning;
+    
     //Within each item in data
     public String id;
     public String title;
@@ -23,8 +22,6 @@ public class artObj implements Serializable {
     public String tags;
     public String categories;
     public String randomId;
-
-    // public boolean checked = false;
 
     public artObj() {
         this.randomId = this.generateId(8);
@@ -43,10 +40,6 @@ public class artObj implements Serializable {
         this.categories = categories;
         this.randomId = randomId;
     }
-
-
-
-
 
     public ArrayList<artObj> getData() {
         return Data;
@@ -68,22 +61,6 @@ public class artObj implements Serializable {
         }
         return strBuilder.toString().substring(0, numchars);
     }
-
-    // public String getPublished_on() {
-    //     long temp = Integer.parseInt(published_on);
-    //     Date date = new Date(temp*1000L);
-    //     DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-    //     String strDate = dateFormat.format(date);
-    //     return strDate;
-    // }
-
-    // public void setPublished_on(String published_on) {
-    //     long temp = Integer.parseInt(published_on);
-    //     Date date = new Date(temp*1000L);
-    //     DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-    //     String strDate = dateFormat.format(date);
-    //     this.published_on = strDate;
-    // }
 
     public String getPublished_on() {
         return published_on;
@@ -152,22 +129,5 @@ public class artObj implements Serializable {
     public void setRandomId(String randomId) {
         this.randomId = randomId;
     }
-
-    
-
-    // public boolean isChecked() {
-    //     return checked;
-    // }
-
-    // public void setChecked(boolean checked) {
-    //     this.checked = checked;
-    // }
-    
-    // @Override
-    // public String toString() {
-    //     return "Articles [Data=" + Data + ", HasWarning=" + HasWarning + ", Message=" + Message + ", body=" + body
-    //             + ", categories=" + categories + ", id=" + id + ", imageurl=" + imageurl + ", published_on="
-    //             + published_on + ", tags=" + tags + ", title=" + title + ", url=" + url + "]";
-    // }
     
 }
