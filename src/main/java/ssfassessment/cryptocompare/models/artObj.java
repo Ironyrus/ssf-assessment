@@ -1,6 +1,7 @@
 package ssfassessment.cryptocompare.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -70,6 +71,8 @@ public class artObj {
     }
 
     public String getPublished_on() {
+        int temp = Integer.parseInt(published_on);
+        Date date = new Date(temp*1000L);
         return published_on;
     }
 

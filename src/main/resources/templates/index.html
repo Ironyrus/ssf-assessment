@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Crypto News of the Day</h1>
-    
+    <br>
     <form
     action="#"
     th:action="@{/articles}"
@@ -26,7 +26,7 @@
 
         </tr>
         <tr data-th-each="item , iStat : ${articles.Data}" >
-            <td> <img th:src="@{${item.imageurl}}"  /> </td>
+            <td> <img th:src="@{${item.imageurl}}" class="img-thumbnail" /> </td>
             <td data-th-text="${item.id}" ></td>
             <td data-th-text="${item.title}"></td>
             <td data-th-text="${item.body}"></td>
