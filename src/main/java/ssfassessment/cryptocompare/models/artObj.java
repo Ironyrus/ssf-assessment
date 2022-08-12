@@ -1,5 +1,6 @@
 package ssfassessment.cryptocompare.models;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public class artObj {
+public class artObj implements Serializable {
     public ArrayList<artObj> Data;
     // public String Message;
     // public String HasWarning;
@@ -21,24 +22,29 @@ public class artObj {
     public String imageurl;
     public String tags;
     public String categories;
+    public String randomId;
+
     // public boolean checked = false;
 
     public artObj() {
-        this.id = this.generateId(8);
+        this.randomId = this.generateId(8);
     }
 
-    public artObj(ArrayList<artObj> data, String id, String published_on, String title, String url, String imageurl,
-            String body, String tags, String categories) {
+    public artObj(ArrayList<artObj> data, String id, String randomId, String title, String body, String published_on,
+            String url, String imageurl, String tags, String categories) {
         Data = data;
-        this.id = this.generateId(8);
-        this.published_on = published_on;
+        this.id = id;
         this.title = title;
+        this.body = body;
+        this.published_on = published_on;
         this.url = url;
         this.imageurl = imageurl;
-        this.body = body;
         this.tags = tags;
         this.categories = categories;
+        this.randomId = randomId;
     }
+
+
 
 
 
@@ -49,22 +55,6 @@ public class artObj {
     public void setData(ArrayList<artObj> data) {
         Data = data;
     }
-
-    // public String getMessage() {
-    //     return Message;
-    // }
-
-    // public void setMessage(String message) {
-    //     Message = message;
-    // }
-
-    // public String getHasWarning() {
-    //     return HasWarning;
-    // }
-
-    // public void setHasWarning(String hasWarning) {
-    //     HasWarning = hasWarning;
-    // }
 
     public String getId() {
         return id;
@@ -79,20 +69,28 @@ public class artObj {
         return strBuilder.toString().substring(0, numchars);
     }
 
+    // public String getPublished_on() {
+    //     long temp = Integer.parseInt(published_on);
+    //     Date date = new Date(temp*1000L);
+    //     DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+    //     String strDate = dateFormat.format(date);
+    //     return strDate;
+    // }
+
+    // public void setPublished_on(String published_on) {
+    //     long temp = Integer.parseInt(published_on);
+    //     Date date = new Date(temp*1000L);
+    //     DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+    //     String strDate = dateFormat.format(date);
+    //     this.published_on = strDate;
+    // }
+
     public String getPublished_on() {
-        int temp = Integer.parseInt(published_on);
-        Date date = new Date(temp*1000L);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        String strDate = dateFormat.format(date);
-        return strDate;
+        return published_on;
     }
 
     public void setPublished_on(String published_on) {
-        int temp = Integer.parseInt(published_on);
-        Date date = new Date(temp*1000L);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        String strDate = dateFormat.format(date);
-        this.published_on = strDate;
+        this.published_on = published_on;
     }
 
     public String getTitle() {
@@ -141,6 +139,18 @@ public class artObj {
 
     public void setCategories(String categories) {
         this.categories = categories;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getRandomId() {
+        return randomId;
+    }
+
+    public void setRandomId(String randomId) {
+        this.randomId = randomId;
     }
 
     

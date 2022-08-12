@@ -13,6 +13,8 @@
     action="#"
     th:action="@{/articles}"
     method="post">
+    <input type="submit" value="Save" />
+
     <table class="table">
     <thead>
         <tr>
@@ -27,18 +29,20 @@
 
         </tr>
     </thead>
-        <tr data-th-each="item , iStat : ${articles.Data}" >
-            <td> <img th:src="@{${item.imageurl}}" class="rounded float-start" /> </td>
-            <td data-th-text="${item.id}" ></td>
-            <td data-th-text="${item.title}"></td>
-            <td data-th-text="${item.body}"></td>
-            <td data-th-text="${item.categories}"></td>
-            <td data-th-text="${item.tags}"></td>
-            <td data-th-text="${item.published_on}"></td>
-            <td>
+
+        <tr data-th-each="item, iStat : *{articles.Data}" >
+            <td class="col"> <img th:src="@{${item.getImageurl()}}" class="img-fluid" /> </td>
+            <td class="col" data-th-text="${item.getId()}" ></td>
+            <td class="col" data-th-text="${item.getTitle()}"></td>
+            <td class="col" data-th-text="${item.getBody()}"></td>
+            <td class="col" data-th-text="${item.getCategories()}"></td>
+            <td class="col" data-th-text="${item.getTags()}"></td>
+            <td class="col" data-th-text="${item.getPublished_on()}"></td>
+            <td class="col" >
                 <input type="checkbox" name="id" th:value="${iStat.count}" />
             </td>
         </tr>
+
     </table>
 
     <input type="submit" value="Save" />

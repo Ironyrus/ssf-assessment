@@ -58,8 +58,8 @@ public class redisService implements bgRepo {
     }
 
     @Override
-    public void saveCurrObj(artObj currconverter, int value) {
-        redisTemplate.opsForValue().set(value + "", currconverter);
+    public void saveCurrObj(artObj article, int value) {
+        redisTemplate.opsForValue().set(article.getRandomId(), article);
         
     }
 
