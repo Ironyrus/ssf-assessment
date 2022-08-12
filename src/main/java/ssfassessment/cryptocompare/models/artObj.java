@@ -1,9 +1,12 @@
 package ssfassessment.cryptocompare.models;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 public class artObj {
     public ArrayList<artObj> Data;
@@ -21,12 +24,13 @@ public class artObj {
     // public boolean checked = false;
 
     public artObj() {
+        this.id = this.generateId(8);
     }
 
     public artObj(ArrayList<artObj> data, String id, String published_on, String title, String url, String imageurl,
             String body, String tags, String categories) {
         Data = data;
-        this.id = id;
+        this.id = this.generateId(8);
         this.published_on = published_on;
         this.title = title;
         this.url = url;
@@ -66,18 +70,29 @@ public class artObj {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    private synchronized String generateId(int numchars) {
+        Random r = new Random();
+        StringBuilder strBuilder = new StringBuilder();
+        while (strBuilder.length() < numchars) {
+            strBuilder.append(Integer.toHexString(r.nextInt()));
+        }
+        return strBuilder.toString().substring(0, numchars);
     }
 
     public String getPublished_on() {
         int temp = Integer.parseInt(published_on);
         Date date = new Date(temp*1000L);
-        return published_on;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String strDate = dateFormat.format(date);
+        return strDate;
     }
 
     public void setPublished_on(String published_on) {
-        this.published_on = published_on;
+        int temp = Integer.parseInt(published_on);
+        Date date = new Date(temp*1000L);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String strDate = dateFormat.format(date);
+        this.published_on = strDate;
     }
 
     public String getTitle() {
